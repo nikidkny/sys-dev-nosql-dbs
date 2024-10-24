@@ -1,0 +1,249 @@
+/* Specific styles for the main content */
+#main-content {
+  background-color: #2c2c2c;
+  padding: 20px;
+  border-radius: 8px;
+}
+
+#main-content h1 {
+  color: #0084ff;
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+#main-content h2 {
+  color: #e4e2e2;
+  font-size: 2rem;
+  margin-top: 1.5rem;
+}
+
+#main-content p {
+  color: #b7b7b7;
+  font-size: 1.25rem;
+  line-height: 1.75;
+  margin-bottom: 1rem;
+}
+
+#main-content ul {
+  color: #cdcdcd;
+  font-size: 1.25rem;
+  margin-left: 20px;
+}
+
+#main-content li {
+  margin-bottom: 0.5rem;
+}
+
+/* Diagram styles */
+.intro-text {
+  font-size: 1.2rem;
+  color: #fff;
+  margin-bottom: 20px;
+}
+
+#diagram-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 2rem;
+  background-color: #252525;
+  padding: 20px;
+  border-radius: 8px;
+}
+
+.document {
+  background-color: #0084ff;
+  padding: 20px;
+  border-radius: 10px;
+  color: white;
+  font-size: 1.5rem;
+  margin-bottom: 20px;
+}
+
+.fields {
+  display: flex;
+  gap: 20px;
+}
+
+.field {
+  background-color: #555;
+  padding: 15px;
+  border-radius: 8px;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.field:hover {
+  background-color: #0084ff;
+}
+
+#explanation-box {
+  margin-top: 20px;
+  padding: 15px;
+  background-color: #444;
+  border-radius: 8px;
+  color: #fff;
+  font-size: 1.25rem;
+  width: 80%;
+  text-align: center;
+}
+
+#explanation-box code {
+  background-color: #222;
+  color: #00aaff;
+  border-radius: 4px;
+  font-size: 1.1rem;
+  display: inline-block;
+  text-align: left;
+  padding: 3vh 5vh 3vh 5vh;
+}
+/* Accordion styles */
+.accordion-button {
+  background-color: #555;
+  color: white;
+  cursor: pointer;
+  padding: 15px;
+  width: 100%;
+  border: none;
+  text-align: left;
+  outline: none;
+  font-size: 1.25rem;
+  transition: background-color 0.3s ease;
+}
+
+.accordion-button:hover {
+  background-color: #1d1d1d;
+  transform: scale(1.02);
+}
+
+.panel {
+  padding: 0 18px;
+  background-color: #2c2c2c;
+  display: none;
+  overflow: hidden;
+  color: #b7b7b7;
+  font-size: 1rem;
+}
+#fetch-incomplete-activities-btn {
+  border-radius: 0.5rem;
+  border: 1px solid #d0d5dd;
+  background: #f9fafb;
+  box-shadow: 0px 1px 2px 0px rgba(16, 24, 40, 0.05);
+  padding: 0.625rem 1rem;
+  color: black;
+  font-weight: 500;
+  margin-bottom: 1.5rem;
+}
+
+#fetch-incomplete-activities-btn:hover {
+  cursor: pointer;
+  background: #555;
+  color: white;
+}
+
+#activity-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  margin: 20px 0;
+  font-size: 18px;
+  text-align: left;
+  border: 1px solid #555;
+  border-radius: 10px;
+  overflow: hidden;
+  display: none;
+}
+
+#activity-table thead th:first-child {
+  border-top-left-radius: 10px;
+}
+
+#activity-table thead th:last-child {
+  border-top-right-radius: 10px;
+}
+
+#activity-table tbody tr:last-child td:first-child {
+  border-bottom-left-radius: 10px;
+}
+
+#activity-table tbody tr:last-child td:last-child {
+  border-bottom-right-radius: 10px;
+}
+
+#activity-table thead th {
+  background-color: #555;
+  color: white;
+  padding: 12px 15px;
+}
+
+#activity-table tbody td {
+  padding: 12px 15px;
+  border: none;
+}
+
+/* Quiz styles */
+#quiz-container {
+  margin-top: 2rem;
+  padding: 10px;
+  background-color: #252525;
+  border-radius: 8px;
+}
+
+#quiz-container p {
+  font-size: 1.5rem;
+}
+
+label {
+  font-size: 1.25rem;
+}
+
+#quiz-form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+#quiz-result {
+  font-size: 1.5rem;
+  color: #b7b7b7;
+}
+#submit-quiz {
+  background-color: black;
+  color: white;
+  font-size: 16px;
+  font-family: 'Montserrat', sans-serif;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition:
+    background-color 0.3s ease,
+    transform 0.2s ease;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 100%;
+}
+
+#submit-quiz:hover {
+  background-color: #1d1d1d;
+  transform: scale(1.02);
+}
+#submit-quiz:active {
+  background-color: #3e3f3f;
+  transform: scale(0.98);
+}
+
+/* Responsive adjustments */
+@media only screen and (max-width: 768px) {
+  #main-content h1 {
+    font-size: 2rem;
+  }
+  #main-content h2 {
+    font-size: 1.5rem;
+  }
+  #main-content p,
+  #main-content ul {
+    font-size: 1rem;
+  }
+}

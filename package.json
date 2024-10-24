@@ -1,0 +1,26 @@
+{
+  "name": "nosql-random-group",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "NoSQL Hand-in for International Web Dev Cphbusiness",
+  "scripts": {
+    "dev": "concurrently \"live-server ./client --port=3000\" \"nodemon node \"./server/app.js",
+    "initialize-db": "node server/database/schema.js",
+    "format": "npx prettier . --write",
+    "prepare": "husky"
+  },
+  "devDependencies": {
+    "concurrently": "^9.0.1",
+    "husky": "^9.1.6",
+    "live-server": "^1.2.2",
+    "nodemon": "^3.1.7",
+    "prettier": "3.3.3"
+  },
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "dotenv": "^16.4.5",
+    "express": "^4.21.0",
+    "jsonwebtoken": "^9.0.2",
+    "mongodb": "^6.9.0"
+  }
+}

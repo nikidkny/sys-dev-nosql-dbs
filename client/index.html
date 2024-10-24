@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, inital-scale=1.0" />
+    <meta name="theme-color" content="#24292E" />
+    <meta name="description" content="NoSQL OLA" />
+    <meta property="og:title" content="NoSQL OLA" />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="en_GB" />
+    <link rel="icon" href="public/favicon.ico" />
+    <link rel="stylesheet" href="styles.css" />
+    <title>NoSQL</title>
+  </head>
+  <body>
+    <nav id="navbar">
+      <div id="logo">
+        <img id="logo-img" src="public/logo.png" alt="page logo" width="40" height="40" />
+      </div>
+      <div id="text">
+        <p>NoSQL</p>
+      </div>
+
+      <ul id="nav-ul">
+        <li><a class="nav-link" href="/">Home</a></li>
+      </ul>
+
+      <div id="dropdown">
+        <button id="dropbtn">Select Topics</button>
+        <div id="dropdown-content"></div>
+      </div>
+      <button id="login-btn">Login</button>
+      <button id="signup-btn">Sign Up</button>
+      <button id="logout-btn">Log out</button>
+    </nav>
+    <main>
+      <ul id="card-list"></ul>
+      <div id="auth-popup" class="popup">
+        <div class="popup-content">
+          <span id="close-popup" class="close">&times;</span>
+          <div class="form">
+            <form id="auth-form">
+              <h2 id="popup-title">Login</h2>
+              <div id="name-input" class="form-group">
+                <input type="text" id="name" name="name" placeholder="Name" />
+              </div>
+              <div id="email-input" class="form-group">
+                <input type="email" id="email" name="email" required placeholder="Email" />
+              </div>
+              <div id="password-input" class="form-group">
+                <input
+                  type="password"
+                  id="password"
+                  name="password"
+                  required
+                  placeholder="Password"
+                />
+              </div>
+              <button type="submit" id="auth-submit">Login</button>
+            </form>
+            <div class="message-container">
+              <div id="auth-message"></div>
+            </div>
+            <p id="toggle-auth">Don't have an account? <a href="#">Sign Up</a></p>
+          </div>
+        </div>
+      </div>
+    </main>
+    <script type="module" src="scripts.js"></script>
+  </body>
+</html>

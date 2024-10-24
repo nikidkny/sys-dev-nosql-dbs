@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, inital-scale=1.0" />
+    <meta name="theme-color" content="#24292E" />
+    <meta name="description" content="NoSQL OLA" />
+    <meta property="og:title" content="NoSQL OLA" />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="en_GB" />
+    <link rel="icon" href="../../public/favicon.ico" />
+    <link rel="stylesheet" href="../../styles.css" />
+    <link rel="stylesheet" href="./styles.css" />
+    <title>NoSQL</title>
+  </head>
+  <body>
+    <nav id="navbar">
+      <div id="logo" onclick="window.open('../../index.html', '_self')">
+        <img id="logo-img" src="../../public/logo.png" alt="page logo" width="40" height="40" />
+      </div>
+      <div id="text" onclick="window.open('../../index.html', '_self')">
+        <p>Document DBs CRUD</p>
+      </div>
+      <ul id="nav-ul">
+        <li><a class="nav-link" href="/">Home</a></li>
+      </ul>
+      <div id="dropdown">
+        <button id="dropbtn">Select Topics</button>
+        <div id="dropdown-content"></div>
+      </div>
+    </nav>
+    <main>
+      <!--START ADDING YOUR PAGE HERE-->
+      <div id="page-cont-crud">
+        <h1>CRUD Operations with MongoDB</h1>
+
+        <p class="text">
+          CRUD is an acronym that stands for Create, Read, Update, and Delete. These are the basic
+          operations performed in a database or a data-driven application. In this example, we will
+          explain how CRUD operations work with MongoDB, a NoSQL database.
+        </p>
+
+        <h2>1. Create</h2>
+        <p class="text">
+          The <strong>Create</strong> operation refers to the action of adding new data (document)
+          to a MongoDB collection. This is done using the <code>insertOne()</code> or
+          <code>insertMany()</code> method in MongoDB.
+        </p>
+        <ul>
+          <li class="list-item">
+            <strong>Example:</strong> Adding a new user document to a <code>topic</code> collection.
+          </li>
+          <li class="list-item">
+            <code>db.topic.insertOne({ name: 'Frontend', description: 'web GUI' })</code>
+          </li>
+        </ul>
+
+        <h2>2. Read</h2>
+        <p class="text">
+          The <strong>Read</strong> operation refers to retrieving data (documents) from a MongoDB
+          collection. This is achieved using the <code>find()</code> or
+          <code>findOne()</code> method.
+        </p>
+        <ul>
+          <li class="list-item">
+            <strong>Example:</strong> Fetching user details from the <code>topic</code> collection.
+          </li>
+          <li class="list-item">
+            <code>db.topics.findOne({ _id: ObjectId('60c72b2f9b1d8a5e7c2a1234') })</code>
+          </li>
+        </ul>
+
+        <h2>3. Update</h2>
+        <p class="text">
+          The <strong>Update</strong> operation is used to modify existing documents in a
+          collection. This is done using the <code>updateOne()</code> or
+          <code>updateMany()</code> method.
+        </p>
+        <ul>
+          <li class="list-item">
+            <strong>Example:</strong> Updating a topic's description in the
+            <code>topic</code> collection.
+          </li>
+          <li class="list-item">
+            <code
+              >db.topic.updateOne({ _id: ObjectId('60c72b2f9b1d8a5e7c2a1234') }, { $set: {
+              description: 'user interface in a web browser' } })</code
+            >
+          </li>
+        </ul>
+
+        <h2>4. Delete</h2>
+        <p class="text">
+          The <strong>Delete</strong> operation refers to removing documents from a MongoDB
+          collection. This is done using the <code>deleteOne()</code> or
+          <code>deleteMany()</code> method.
+        </p>
+        <ul>
+          <li class="list-item">
+            <strong>Example:</strong> Deleting a topic document from the
+            <code>topic</code> collection.
+          </li>
+          <li class="list-item">
+            <code>db.topic.deleteOne({ _id: ObjectId('60c72b2f9b1d8a5e7c2a1234') })</code>
+          </li>
+        </ul>
+
+        <br />
+        <h2>DEMONSTRATION: Topics CRUD Table</h2>
+        <table id="topics-table">
+          <thead>
+            <tr>
+              <th>Topic Name</th>
+              <th>Description</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody id="topics-body">
+            <!-- Table rows will be populated dynamically -->
+          </tbody>
+        </table>
+        <button class="btn" id="add-row">Add New Topic</button>
+      </div>
+    </main>
+    <script type="module" src="scripts.js"></script>
+  </body>
+</html>

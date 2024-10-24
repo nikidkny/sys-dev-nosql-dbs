@@ -1,0 +1,49 @@
+version: '3.8'
+
+services:
+  # MongoDB service
+  mongo:
+    image: mongo:6.0
+    container_name: mongodb
+    restart: always
+    ports:
+      - '27017:27017'
+    volumes:
+      - mongo-data:/data/db
+    environment:
+      MONGO_INITDB_DATABASE: ${DATABASE_NAME}
+    networks:
+      - app-network
+  web:
+    build: .
+    ports:
+      - '3000:3000'
+  # Backend service
+  backend:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: backend
+    restart: always
+    ports:
+      - '8080:8080'
+    environment:
+      DATABASE_CONNECTION_STRING: ${DATABASE_CONNECTION_STRING}
+      DATABASE_NAME: ${DATABASE_NAME}
+      PORT: 8080
+    depends_on:
+      - mongo
+    networks:
+      - app-network
+    volumes:
+      - .:/usr/src/app
+
+# Volumes to persist MongoDB data
+volumes:
+  mongo-data:
+    driver: local
+
+# Shared network
+networks:
+  app-network:
+    driver: bridge

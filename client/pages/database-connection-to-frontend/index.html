@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, inital-scale=1.0" />
+    <meta name="theme-color" content="#24292E" />
+    <meta name="description" content="NoSQL OLA" />
+    <meta property="og:title" content="NoSQL OLA" />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="en_GB" />
+    <link rel="icon" href="../../public/favicon.ico" />
+    <link rel="stylesheet" href="../../styles.css" />
+    <link rel="stylesheet" href="./styles.css" />
+    <title>NoSQL</title>
+  </head>
+  <body>
+    <nav id="navbar">
+      <div id="logo" onclick="window.open('../../index.html', '_self')">
+        <img id="logo-img" src="../../public/logo.png" alt="page logo" width="40" height="40" />
+      </div>
+      <div id="text" onclick="window.open('../../index.html', '_self')">
+        <p>DB Connection to Frontend</p>
+      </div>
+      <ul id="nav-ul">
+        <li><a class="nav-link" href="/">Home</a></li>
+      </ul>
+      <div id="dropdown">
+        <button id="dropbtn">Select Topics</button>
+        <div id="dropdown-content"></div>
+      </div>
+    </nav>
+    <main id="connection-page">
+      <section>
+        <h1>How Does a Database Connect to a Web Front End?</h1>
+        <button id="fetch-quizzes-btn">Quizzes</button>
+        <table id="quizzes-table">
+          <thead>
+            <tr>
+              <th>Activity Name</th>
+              <th>Activity Type</th>
+              <th>Completed</th>
+            </tr>
+          </thead>
+          <tbody id="quizzes-tbody"></tbody>
+        </table>
+
+        <p>
+          The front end and the back end of an application are typically connected through a REST
+          API. A REST API serves as an intermediary that allows the web front end to communicate
+          with the back end without directly accessing the database. The process involves sending
+          HTTP requests from the front end to the server, which interacts with the database and
+          returns the data to the front end.
+        </p>
+      </section>
+
+      <section>
+        <h2>What is a REST API?</h2>
+        <p>
+          A REST API (Representational State Transfer Application Programming Interface) is a set of
+          rules and conventions that allows the front end to interact with the back end. It
+          typically uses HTTP methods to request data from or send data to a database.
+        </p>
+
+        <p>The main HTTP methods used in a REST API are:</p>
+        <ul>
+          <li>GET: Used to retrieve data from the database.</li>
+          <li>POST: Used to send data to the database (e.g., creating new records).</li>
+          <li>PUT: Used to update existing data in the database.</li>
+          <li>DELETE: Used to delete data from the database.</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>The Fetch API</h2>
+        <p>
+          The Fetch API is used to send requests from the front-end to the backend and retrieve
+          data. For example, to get a list of users, a GET request can be made like this:
+        </p>
+      </section>
+      <img src="../../public/fetchapi.png" alt="fetch-api" />
+      <section>
+        <p>
+          The server receives this request and retrieves the data from the database, typically using
+          a query. It then returns the data in JSON format for the front end to use.
+        </p>
+      </section>
+    </main>
+    <script type="module" src="scripts.js"></script>
+  </body>
+</html>

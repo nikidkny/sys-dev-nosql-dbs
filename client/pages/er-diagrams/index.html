@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, inital-scale=1.0" />
+    <meta name="theme-color" content="#24292E" />
+    <meta name="description" content="NoSQL OLA" />
+    <meta property="og:title" content="NoSQL OLA" />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="en_GB" />
+    <link rel="icon" href="../../public/favicon.ico" />
+    <link rel="stylesheet" href="../../styles.css" />
+    <link rel="stylesheet" href="./styles.css" />
+    <title>NoSQL</title>
+  </head>
+  <body>
+    <nav id="navbar">
+      <div id="logo" onclick="window.open('../../index.html', '_self')">
+        <img id="logo-img" src="../../public/logo.png" alt="page logo" width="40" height="40" />
+      </div>
+      <div id="text" onclick="window.open('../../index.html', '_self')">
+        <p>ER Diagrams</p>
+      </div>
+      <ul id="nav-ul">
+        <li><a class="nav-link" href="/">Home</a></li>
+      </ul>
+      <div id="dropdown">
+        <button id="dropbtn">Select Topics</button>
+        <div id="dropdown-content"></div>
+      </div>
+    </nav>
+    <main class="erd-page">
+      <section>
+        <h1>Entity-Relationship Diagram (ERD)</h1>
+        <button id="fetch-incomplete-activities-btn">Unfinished activities</button>
+        <table id="activity-table">
+          <thead>
+            <tr>
+              <th>Activity Name</th>
+              <th>Activity Type</th>
+            </tr>
+          </thead>
+          <tbody id="activity-tbody"></tbody>
+        </table>
+        <p>
+          An Entity Relationship Diagram (ERD) is a visual representation of data and the
+          relationships between entities within a database system. It is commonly used in database
+          design and serves as a blueprint to model the structure of data before it is implemented
+          in a database. ERDs were first introduced by Peter Chen in 1976 and have since become a
+          standard tool in relational database design.
+        </p>
+      </section>
+
+      <section>
+        <h2>Entities</h2>
+        <p>
+          An entity is any object, real or abstract, that exists by itself and can be clearly
+          identified in an information system. Each entity instance is called an occurrence, and an
+          entity is named after a "thing" it represents.
+        </p>
+      </section>
+
+      <section>
+        <h2>Attributes</h2>
+        <p>
+          Attributes are the data points that describe an entity. For example, in an entity like
+          "Employee," attributes could include EmployeeID, FirstName, LastName, and HireDate. Keys
+          are special types of attributes that uniquely identify an entity. Each entity must have a
+          primary key.
+        </p>
+        <ul>
+          <li>
+            Primary Key: One or more attributes that uniquely identify an entity. For example,
+            `EmployeeID` is often used as the primary key in an "Employee" entity.
+          </li>
+          <li>
+            Foreign Key: An attribute that creates a link between two entities, often representing a
+            relationship between them.
+          </li>
+        </ul>
+      </section>
+      <img src="../../public/ERD.jpg" class="erd-img" />
+
+      <section>
+        <h2>Relationships</h2>
+        <p>A relationship is an association between different entities.</p>
+        <ul>
+          <li>
+            1:N (One-to-Many): An entity in group 1 must be associated with one or more entities in
+            group 2 (e.g., an invoice must have at least one invoice line).
+          </li>
+          <li>
+            0:N (Zero-to-Many): An entity can be associated with many or no entities in another
+            group (e.g., a car can have many extras or none).
+          </li>
+          <li>
+            1:1 (One-to-One): An entity in one group must be associated with exactly one entity in
+            another (e.g., a patient has one and only one medical history).
+          </li>
+          <li>
+            0:1 (Zero-to-One): An entity in one group can be associated with one or no entities in
+            another group (e.g., a purchase can have a discount or no discount).
+          </li>
+          <li>
+            M:N (Many-to-Many): Entities in group 1 can be associated with multiple entities in
+            group 2, and vice versa. For example, students can enroll in many courses, and each
+            course can have many students. This type of relationship often requires a third entity,
+            called a join or bridge table, to store the relationship.
+          </li>
+        </ul>
+      </section>
+    </main>
+    <script type="module" src="scripts.js"></script>
+  </body>
+</html>

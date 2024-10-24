@@ -1,0 +1,219 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, inital-scale=1.0" />
+    <meta name="theme-color" content="#24292E" />
+    <meta name="description" content="NoSQL OLA" />
+    <meta property="og:title" content="NoSQL OLA" />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="en_GB" />
+    <link rel="icon" href="../../public/favicon.ico" />
+    <link rel="stylesheet" href="../../styles.css" />
+    <link rel="stylesheet" href="./styles.css" />
+    <title>NoSQL</title>
+  </head>
+  <body>
+    <nav id="navbar">
+      <div id="logo" onclick="window.open('../../index.html', '_self')">
+        <img id="logo-img" src="../../public/logo.png" alt="page logo" width="40" height="40" />
+      </div>
+      <div id="text" onclick="window.open('../../index.html', '_self')">
+        <p>Document Databases</p>
+      </div>
+      <ul id="nav-ul">
+        <li><a class="nav-link" href="/">Home</a></li>
+      </ul>
+      <div id="dropdown">
+        <button id="dropbtn">Select Topics</button>
+        <div id="dropdown-content"></div>
+      </div>
+    </nav>
+    <main>
+      <div id="main-content">
+        <h1>What is a Document Database?</h1>
+        <button id="fetch-incomplete-activities-btn">Unfinished activities</button>
+        <table id="activity-table">
+          <thead>
+            <tr>
+              <th>Activity Name</th>
+              <th>Activity Type</th>
+            </tr>
+          </thead>
+          <tbody id="activity-tbody"></tbody>
+        </table>
+        <p>
+          A document database (also known as a document-oriented database) is designed for storing,
+          retrieving, and managing document-oriented information, also known as semi-structured
+          data. It stores data in formats like JSON, BSON, or XML.
+        </p>
+
+        <h2>Key Features of Document Databases</h2>
+        <div class="accordion">
+          <button class="accordion-button">Schema Flexibility</button>
+          <div class="panel">
+            <p>
+              No predefined schema, allowing dynamic data models that adapt to the application’s
+              needs.
+            </p>
+          </div>
+
+          <button class="accordion-button">Document Format</button>
+          <div class="panel">
+            <p>
+              Stores data as documents (usually JSON or BSON), which are easy to understand and use.
+            </p>
+          </div>
+
+          <button class="accordion-button">Data Independence</button>
+          <div class="panel">
+            <p>
+              Each document is independent, self-describing, and contains all the necessary data for
+              a complete record.
+            </p>
+          </div>
+
+          <button class="accordion-button">High Performance</button>
+          <div class="panel">
+            <p>Efficient in handling large amounts of unstructured or semi-structured data.</p>
+          </div>
+        </div>
+
+        <h2>Popular Document Databases</h2>
+        <ul>
+          <li>MongoDB</li>
+          <li>CouchDB</li>
+          <li>RethinkDB</li>
+          <li>Amazon DocumentDB</li>
+        </ul>
+
+        <h2>Interactive Document Database Diagram</h2>
+        <p class="intro-text">
+          Below is a representation of a document from a document-based database like MongoDB. Click
+          on each field to explore its structure and learn how different types of data are stored
+          within the document.
+        </p>
+        <div id="diagram-container">
+          <div class="document" id="doc-main">
+            <p>Main Document</p>
+          </div>
+
+          <div class="fields">
+            <div class="field" id="field1" title="Field 1">
+              <p>Field: Name</p>
+            </div>
+            <div class="field" id="field2" title="Field 2">
+              <p>Field: Age</p>
+            </div>
+            <div class="field" id="field3" title="Field 3">
+              <p>Field: Address (Nested Document)</p>
+            </div>
+          </div>
+
+          <div id="explanation-box">
+            <p>Click on any field to learn more about it!</p>
+          </div>
+        </div>
+
+        <h2>Why Use Document Databases?</h2>
+        <p>
+          Document databases are ideal for applications with large amounts of unstructured data,
+          including content management systems, catalogs, and e-commerce platforms. The flexibility
+          of schema and the ability to store diverse formats make them excellent for use cases where
+          the structure of data is not uniform.
+        </p>
+        <h2>Additional Characteristics of Document Databases</h2>
+        <p>
+          Document databases are becoming increasingly popular due to their ability to handle
+          complex data structures and their versatility in various applications. Here are some
+          additional characteristics that set document databases apart:
+        </p>
+
+        <h3>1. Querying Capabilities</h3>
+        <p>
+          Document databases provide rich querying capabilities, allowing users to perform complex
+          queries on documents using indexes. Many document databases support various query
+          languages, such as MongoDB's query language, which allows for easy retrieval of documents
+          based on specific criteria.
+        </p>
+
+        <h3>2. Scalability</h3>
+        <p>
+          Document databases are designed to scale horizontally, meaning they can handle increased
+          loads by adding more servers. This scalability is crucial for applications that experience
+          rapid growth or fluctuating demand.
+        </p>
+
+        <h3>3. Data Relationships</h3>
+        <p>
+          While document databases typically do not enforce relationships between documents like
+          relational databases do, they allow for embedded documents and arrays, which can represent
+          relationships directly within a single document. This approach can improve performance by
+          reducing the need for complex joins.
+        </p>
+
+        <h3>4. Use Cases</h3>
+        <p>Document databases are well-suited for various use cases, including:</p>
+        <ul>
+          <li>Content Management Systems: Easily manage and retrieve diverse content types.</li>
+          <li>
+            Big Data Applications: Handle large volumes of unstructured or semi-structured data.
+          </li>
+          <li>
+            Mobile Applications: Support dynamic data structures for rapidly evolving mobile app
+            requirements.
+          </li>
+          <li>
+            Internet of Things (IoT): Manage data from multiple sources and devices effectively.
+          </li>
+        </ul>
+
+        <h2>Challenges of Document Databases</h2>
+        <p>
+          While document databases offer many advantages, they also come with certain challenges,
+          including:
+        </p>
+        <ul>
+          <li>
+            Complexity in Data Modeling: Without a fixed schema, designing an effective data model
+            can be challenging.
+          </li>
+          <li>
+            Potential for Data Duplication: The flexibility of embedded documents can lead to data
+            redundancy, which may complicate updates.
+          </li>
+          <li>
+            Limited Joins: Complex queries involving multiple document types may require additional
+            processing, as joins are not inherently supported like in relational databases.
+          </li>
+        </ul>
+
+        <h2>Quiz: Test Your Knowledge</h2>
+        <div id="quiz-container">
+          <p>Which of the following is a characteristic of a document database?</p>
+          <form id="quiz-form">
+            <label>
+              <input type="radio" name="answer" value="wrong1" />
+              Requires a fixed schema
+            </label>
+            <label>
+              <input type="radio" name="answer" value="correct" />
+              Stores data as JSON or BSON documents
+            </label>
+            <label>
+              <input type="radio" name="answer" value="wrong2" />
+              Limited support for unstructured data
+            </label>
+            <label>
+              <input type="radio" name="answer" value="wrong3" />
+              Only supports relational data models
+            </label>
+            <button type="button" id="submit-quiz">Submit</button>
+          </form>
+          <p id="quiz-result"></p>
+        </div>
+      </div>
+    </main>
+    <script type="module" src="scripts.js"></script>
+  </body>
+</html>

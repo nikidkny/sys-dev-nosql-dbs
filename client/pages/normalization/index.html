@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, inital-scale=1.0" />
+    <meta name="theme-color" content="#24292E" />
+    <meta name="description" content="NoSQL OLA" />
+    <meta property="og:title" content="NoSQL OLA" />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="en_GB" />
+    <link rel="icon" href="../../public/favicon.ico" />
+    <link rel="stylesheet" href="../../styles.css" />
+    <link rel="stylesheet" href="./styles.css" />
+    <title>NoSQL</title>
+  </head>
+  <body>
+    <nav id="navbar">
+      <div id="logo" onclick="window.open('../../index.html', '_self')">
+        <img id="logo-img" src="../../public/logo.png" alt="page logo" width="40" height="40" />
+      </div>
+      <div id="text" onclick="window.open('../../index.html', '_self')">
+        <p>Normalization</p>
+      </div>
+      <ul id="nav-ul">
+        <li><a class="nav-link" href="/">Home</a></li>
+      </ul>
+      <div id="dropdown">
+        <button id="dropbtn">Select Topics</button>
+        <div id="dropdown-content"></div>
+      </div>
+    </nav>
+    <main>
+      <div id="page-cont-norm">
+        <h1>Understanding Database Normalization</h1>
+        <p>
+          Database normalization is a process of organizing the columns (attributes) and tables
+          (relations) of a database to minimize redundancy and improve data integrity. It involves
+          splitting large tables into smaller, related tables and defining relationships between
+          them. The goal is to reduce duplicate data and ensure that the database is efficient and
+          scalable.
+        </p>
+        <br />
+
+        <h3>1st Normal Form (1NF): Eliminate Repeating Groups</h3>
+        <p>
+          In the first step of normalization, we ensure that each table contains atomic values. This
+          means that each column should contain only one piece of information, and there should be
+          no repeating groups.
+        </p>
+
+        <p>For example, initially, we may have a student table like this:</p>
+
+        <div class="img-small">
+          <img src="/public/images/lvl_0_n.jpg" alt="Level 0 Normalization" />
+        </div>
+
+        <p>
+          In 1NF, we would split the "activities" column into separate rows for each activity to
+          eliminate repeating groups:
+        </p>
+        <div class="img-small">
+          <img src="/public/images/lvl_1_n.jpg" alt="Level 1 Normalization" />
+        </div>
+
+        <h3>2nd Normal Form (2NF): Eliminate Redundant Data</h3>
+        <p>
+          To move to the second normal form, we must remove partial dependencies, which means
+          separating data that depends on only part of the primary key. Here, we split the
+          activities into a separate table and create a relationship with the student table.
+        </p>
+
+        <p>
+          We introduce a new table called <strong>student_activity_join</strong> to link students
+          with their activities:
+        </p>
+        <p>Then, we have an <strong>activity</strong> table as well:</p>
+        <img src="/public/images/lvl_2_n.jpg" alt="Level 2 Normalization" />
+
+        <h3>3rd Normal Form (3NF): Remove Transitive Dependencies</h3>
+        <p>
+          The third normal form eliminates transitive dependencies, where non-key columns depend on
+          other non-key columns. To resolve this, we introduce a <strong>topic</strong> table to
+          manage the relationship between activities and their topics.
+        </p>
+
+        <p>
+          We now have an <strong>activity_topic_join</strong> table, and finally, a
+          <strong>topic</strong> table that stores topic information:
+        </p>
+
+        <img src="/public/images/lvl_3_n.jpg" alt="Level 3 Normalization" />
+
+        <h3>Conclusion</h3>
+        <p>
+          By normalizing the database into 1NF, 2NF, and 3NF, we have created a set of related
+          tables that minimize data redundancy and ensure data integrity. Each table serves a
+          specific purpose, and relationships are defined using foreign keys. This approach makes
+          the database more efficient, scalable, and easier to maintain.
+        </p>
+      </div>
+    </main>
+    <script type="module" src="scripts.js"></script>
+  </body>
+</html>
