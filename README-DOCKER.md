@@ -25,7 +25,7 @@ This document provides the steps to reproduce the containerization process and h
      CMD ["npm", "run", "dev"]
      ```
      - Use a Node.js base image that matches your local environment
-     - Expose the port your app runs on (backend)
+     - Expose the port your app runs on
 
 2. **Create a Docker-Compose File**
 
