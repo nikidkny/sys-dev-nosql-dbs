@@ -1,49 +1,73 @@
-version: '3.8'
-
+# Define the services that will be part of the Docker Compose application
 services:
-  # MongoDB service
+  # MongoDB service configuration
   mongo:
+    # Use the official MongoDB image version 6.0
     image: mongo:6.0
+    # Name the container 'mongodb'
     container_name: mongodb
+    # Always restart the container if it stops
     restart: always
+    # Map port 27017 on the host to port 27017 on the container
     ports:
       - '27017:27017'
+    # Persist MongoDB data in a named volume
     volumes:
       - mongo-data:/data/db
+    # Set environment variables for MongoDB initialization
     environment:
       MONGO_INITDB_DATABASE: ${DATABASE_NAME}
+    # Connect the MongoDB service to the 'app-network'
     networks:
       - app-network
-  web:
+
+  # Frontend service configuration
+  frontend:
+    # Build the frontend service from the Dockerfile in the current directory
     build: .
+    # Map port 3000 on the host to port 3000 on the container
     ports:
       - '3000:3000'
-  # Backend service
+    depends_on:
+      - backend
+      - mongo
+
+  # Backend service configuration
   backend:
+    # Build the backend service from the Dockerfile in the current directory
     build:
       context: .
       dockerfile: Dockerfile
+    # Name the container 'backend'
     container_name: backend
+    # Always restart the container if it stops
     restart: always
+    # Map port 8080 on the host to port 8080 on the container
     ports:
       - '8080:8080'
+    # Set environment variables for the backend service
     environment:
       DATABASE_CONNECTION_STRING: ${DATABASE_CONNECTION_STRING}
       DATABASE_NAME: ${DATABASE_NAME}
       PORT: 8080
+    # Ensure the backend service starts after the MongoDB service
     depends_on:
       - mongo
+    # Connect the backend service to the 'app-network'
     networks:
       - app-network
+    # Mount the current directory to '/usr/src/app' in the container
     volumes:
       - .:/usr/src/app
 
-# Volumes to persist MongoDB data
+# Define named volumes to persist data
 volumes:
   mongo-data:
+    # Use the local driver for the volume
     driver: local
 
-# Shared network
+# Define a shared network for the services
 networks:
   app-network:
+    # Use the bridge driver for the network
     driver: bridge
