@@ -7,7 +7,6 @@ This document provides the steps to reproduce the containerization process and h
 ## Prerequisites
 
 - Docker installed on your machine
-- Docker-Compose installed on your machine
 
 ## Steps to Reproduce the Containerization Process
 
