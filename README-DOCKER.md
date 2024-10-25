@@ -43,7 +43,13 @@ This document provides the steps to reproduce the containerization process and h
            MONGO_INITDB_DATABASE: ${DATABASE_NAME}
          networks:
            - app-network
-
+       frontend:
+         build: .
+         ports:
+           - '3000:3000'
+         depends_on:
+           - backend
+           - mongo
        backend:
          build: .
          ports:
@@ -101,9 +107,9 @@ Ensure you have a `.env` file in the root directory of your project with the fol
 
 ## Additional Notes
 
-- The `docker-compose` file defines three services: `mongo`, `backend`, and `web`.
+- The `docker-compose` file defines three services: `mongo`, `backend`, and `frontend`.
 - The `mongo` service uses the official MongoDB image and exposes port `27017`.
 - The `backend` service builds the backend application using the `Dockerfile` and exposes port `8080`.
-- The `web` service exposes port `3000` and represents the frontend application.
+- The `frontend` service exposes port `3000` and represents the frontend application.
 - The `volumes` section ensures that MongoDB data is persisted across container restarts.
 - The `networks` section defines a shared network for the services to communicate.
